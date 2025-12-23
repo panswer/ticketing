@@ -1,0 +1,3 @@
+GET http://ticketing.dev/api/users/currentuser HTTP/v1
+
+###
