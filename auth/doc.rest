@@ -1,3 +1,11 @@
 GET http://ticketing.dev/api/users/currentuser HTTP/v1
 
 ###
+
+POST  http://ticketing.dev/api/users/signup HTTP/v1
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "password"
+}
