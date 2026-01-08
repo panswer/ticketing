@@ -1,11 +1,26 @@
-GET http://ticketing.dev/api/users/currentuser HTTP/v1
+GET https://ticketing.dev/api/users/currentuser HTTP/v1
+Cookie: "session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalk1Tldaak1UZzJNakF3WmpNeE1UZGxPREpoWW1Ga09DSXNJbVZ0WVdsc0lqb2lkR1Z6ZEVCMFpYTjBMbU52YlNJc0ltbGhkQ0k2TVRjMk56ZzRNekUwTW4wLi1LV0xTc0ZoeEFhdzR5UVM1RmRQdDUwdzNtOHZpQTFsSzhLNll2WWl3LUEifQ==; path=/; secure; httponly"
 
 ###
 
-POST  http://ticketing.dev/api/users/signup HTTP/v1
+POST  https://ticketing.dev/api/users/signup HTTP/v1
 Content-Type: application/json
 
 {
-    "email": "test3@test.com",
+    "email": "test@test.com",
     "password": "password"
 }
+
+###
+POST https://ticketing.dev/api/users/signin HTTP/v1
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "password"
+}
+
+###
+POST https://ticketing.dev/api/users/signout HTTP/v1
+Content-Type: application/json
+Cookie: "session=eyJqd3QiOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJalk1TldVNFlqRmtaVFEzTVRkak5UUXpOV1E1TlRsaVl5SXNJbVZ0WVdsc0lqb2lkR1Z6ZEVCMFpYTjBMbU52YlNJc0ltbGhkQ0k2TVRjMk56Z3dNelkzTjMwLjFpUGZTMlRVZ0lBTGlfWU5WcDNiZUlSbFBLN1UxcGVWLWY2TWViY3FpTWMifQ==; path=/; secure; httponly"
