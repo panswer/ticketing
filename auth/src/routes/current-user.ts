@@ -1,12 +1,11 @@
 import { Router } from 'express';
 
-import { currentUser } from '../middleware/current-user';
-import { requireAuth } from '../middleware/require-auth';
+import { currentUser } from "@tjticketing/common";
 
 const router = Router();
 
 router.get('/api/users/currentuser',
-    currentUser, requireAuth,
+    currentUser,
     (req, res) => {
         res.send({
             currentUser: req.currentUser || null
