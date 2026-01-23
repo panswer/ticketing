@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { isValidObjectId } from 'mongoose';
 import express, { Request, Response } from 'express';
 import { BadRequestError, NotFoundError, OrderStatus, requireAuth, validateRequest } from '@tjticketing/common';
 import { body } from 'express-validator';
@@ -18,7 +18,7 @@ router.post('/api/orders',
             .not()
             .isEmpty()
             .custom(
-                (input: string) => mongoose.Types.ObjectId.isValid(input)
+                (input: string) => isValidObjectId(input)
             )
             .withMessage('TicketId must be provided')
     ],
@@ -66,6 +66,7 @@ router.post('/api/orders',
                 id: ticket._id.toString(),
                 price: ticket.price,
             },
+            version: order.version,
         });
 
         res.status(201).send(order);

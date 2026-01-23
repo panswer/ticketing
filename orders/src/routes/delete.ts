@@ -34,6 +34,7 @@ router.delete('/api/orders/:orderId',
             ticket: {
                 id: order.ticket._id.toString(),
             },
+            version: order.version
         });
 
         res.status(204).send(order);

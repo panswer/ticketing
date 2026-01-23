@@ -17,7 +17,10 @@ beforeAll(async () => {
     mongo = await MongoMemoryServer.create();
     const mongoUri = mongo.getUri();
 
-    await mongoose.connect(mongoUri, {});
+    await mongoose.connect(mongoUri, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+    });
 });
 
 beforeEach(async () => {
@@ -38,12 +41,12 @@ afterAll(async () => {
     }
 
     await mongoose.connection.close();
-});
+}, 1000 * 60);
 
 global.signin = () => {
     // Build a JWT payload. { id, email }
     const payload = {
-        id: new mongoose.Types.ObjectId().toHexString(),
+        id: mongoose.Types.ObjectId(),
         email: "test@test.com",
     };
 
