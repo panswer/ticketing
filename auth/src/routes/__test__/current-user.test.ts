@@ -20,8 +20,10 @@ it('response with details about the current user', async () => {
 });
 
 it('response with null if not authenticated', async () => {
-    await request(app)
+    const response = await request(app)
         .get('/api/users/currentuser')
         .send()
-        .expect(401);
+        .expect(200);
+
+    expect(response.body).toHaveProperty('currentUser', null);
 });
