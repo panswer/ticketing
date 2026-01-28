@@ -1,0 +1,11 @@
+name: tests
+
+on:
+  pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@2
+      - run: cd auth && npm i && npm run test:ci
